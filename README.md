@@ -11,12 +11,10 @@ This project uses **Pulumi** with **Python** to create a basic AWS networking se
 - Public and Private Route Tables
 
 Task1:
-- `images/task1/pulumi-preview.png`
-- `images/task1/pulumi-up.png`
-- `images/task1/pulumi-stack.png`
-- `images/task1/stackjson.png`
-
-![Alt text](images/task1/pulumi-preview.png)
+![pulumi-preview](images/task1/pulumi-preview.png)
+![pulumi-up](images/task1/pulumi-up.png)
+![pulumi-stack](images/task1/pulumi-stack.png)
+![stackjson](images/task1/stackjson.png)
 
 
 
