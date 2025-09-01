@@ -1,0 +1,11 @@
+name: aws-pulumi
+description: AWS Hands-On Exam (Pulumi)
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-python
