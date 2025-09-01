@@ -40,7 +40,7 @@ Task2: Bastion Host in Public Subnet
 Task3: Private EC2 Instance
 
 ![SSH-session](images/task3/ssh.png)
-![SSH-session](images/task3/sshs.png)
+![SSH-session](images/task3/sshs.png) 
 
 
 ## 🛠️ **Prerequisites**
