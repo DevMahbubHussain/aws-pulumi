@@ -43,6 +43,46 @@ Task3: Private EC2 Instance
 ![SSH-session](images/task3/sshs.png) 
 
 
+# Key Management on Windows Machine
+
+## 1. Save Your Private Key Locally
+```bash
+pulumi stack output private_key_material > dynamic-key.pem
+
+### 2. Convert to Linux Format
+```bash
+dos2unix dynamic-key.pem
+
+### 3. Set Permissions
+```bash
+chmod 400 dynamic-key.pem
+
+### 4. SSH into the Public (Bastion) Instance
+```bash
+ssh -i dynamic-key.pem ops@<bastionPublicIP>
+
+
+# Access Private Instance via Bastion
+
+### 1. Copy the Private Key to the Public EC2
+
+```bash
+scp -i dynamic-key.pem dynamic-key.pem ops@<bastionPublicIP>:~
+
+### 2. Set Permissions on the Bastion
+```bash
+chmod 400 ~/dynamic-key.pem
+
+### 2. Set Permissions on the Bastion
+```bash
+chmod 400 ~/dynamic-key.pem
+
+
+### 3. SSH into the Private EC2 Using the Key
+```bash
+ssh -i ~/dynamic-key.pem ec2-user@<privateInstanceIP>
+
+
 ## 🛠️ **Prerequisites**
 - [Python 3.8+](https://www.python.org/)
 - [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
