@@ -3,3 +3,5 @@ config:
   aws-pulumi:vpcCidr: "10.0.0.0/16"
   aws-pulumi:publicSubnetCidr: "10.0.1.0/24"
   aws-pulumi:privateSubnetCidr: "10.0.2.0/24"
+  aws-pulumi:instanceType: "t2.micro"
+
