@@ -16,6 +16,8 @@ Task1:
 - `images/task1/pulumi-stack.png`
 - `images/task1/stackjson.png`
 
+![Alt text](images/task1/pulumi-preview.png)
+
 
 
 ## 🛠️ **Prerequisites**
