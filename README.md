@@ -58,6 +58,6 @@ pulumi config set aws:region ap-southeast-1
 pulumi config set vpcCidr 10.0.0.0/16
 pulumi config set publicSubnetCidr 10.0.1.0/24
 pulumi config set privateSubnetCidr 10.0.2.0/24
-pulumi consfig set instanceType: "t2.micro"
+pulumi config set instanceType t2.micro
 
 
