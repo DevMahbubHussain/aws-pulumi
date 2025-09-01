@@ -10,17 +10,15 @@ This project uses **Pulumi** with **Python** to create a basic AWS networking se
 - NAT Gateway
 - Public and Private Route Tables
 
-<<<<<<< HEAD
+
 Task1: Create a Secure VPC
 
-=======
 Task1:
->>>>>>> 4365fc7316c4008ae7733cc596d7c756857c04ac
 ![pulumi-preview](images/task1/pulumi-preview.png)
 ![pulumi-up](images/task1/pulumi-up.png)
 ![pulumi-stack](images/task1/pulumi-stack.png)
 ![stackjson](images/task1/stackjson.png)
-<<<<<<< HEAD
+
 
 
 ### Task 2 — Bastion Host in Public Subnet
@@ -43,9 +41,6 @@ Task3: Private EC2 Instance
 
 ![SSH-session](images/task3/ssh.png)
 ![SSH-session](images/task3/sshs.png)
-=======
->>>>>>> 4365fc7316c4008ae7733cc596d7c756857c04ac
-
 
 
 ## 🛠️ **Prerequisites**
