@@ -45,7 +45,7 @@ Task3: Private EC2 Instance
 
 # Key Management on Windows Machine
 
-## 1. Save Your Private Key Locally
+### 1. Save Your Private Key Locally
 ```bash
 pulumi stack output private_key_material > dynamic-key.pem
 
