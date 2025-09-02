@@ -112,6 +112,8 @@ chmod 400 ~/dynamic-key.pem
 ```bash
 ssh -i ~/dynamic-key.pem ec2-user@<privateInstanceIP>
 
+```
+
 ## 🛠️ **Prerequisites**
 - [Python 3.8+](https://www.python.org/)
 - [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
@@ -134,19 +136,19 @@ pulumi config set --secret DB_PASSWORD <your-strong-password>
 ## 🛠️ **Verify Setup**
 
 ## Check stack preview:
-```pulumi preview
+```bash pulumi preview
 
 ## Check stack preview:
-```pulumi preview
+```bash pulumi preview
 
 ## Deploy resources:
-```pulumi up
+```bash pulumi up
 
 ## Test MySQL connectivity from Bastion:
-```mysql -h <private-instance-ip> -u appuser -p
+```bash mysql -h <private-instance-ip> -u appuser -p
 
 ## Test MySQL connectivity from Bastion:
-```pulumi destroy
-`` pulumi stack rm
+```bash pulumi destroy
+``bash pulumi stack rm
 
 
