@@ -5,6 +5,7 @@ from pulumi_aws import ec2
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 
+
 # Task 1 — Create a Secure VPC
 
 # Get value from Config file
@@ -13,6 +14,15 @@ vpc_cidr = config.require("vpcCidr")
 public_subnet_cidr = config.require("publicSubnetCidr")
 private_subnet_cidr = config.require("privateSubnetCidr")
 instance_type = config.require("instanceType")
+db_password = config.require_secret("secret")
+
+
+with open("setup_mysql.sh", "r") as f:
+    bash_template = f.read()
+
+user_data_script = db_password.apply(
+    lambda pw: bash_template.replace("{{DB_PASSWORD}}", pw)
+)
 
 # Create vpc
 vpc = ec2.Vpc(
@@ -167,6 +177,13 @@ bastion_sg = ec2.SecurityGroup(
             "description": "SSH access",
         },
         {
+            "protocol": "icmp",
+            "from_port": -1,
+            "to_port": -1,
+            "cidr_blocks": ["10.0.2.0/24"],
+            "description": "Allow ICMP from private instances",
+        },
+        {
             "protocol": "tcp",
             "from_port": 80,
             "to_port": 80,
@@ -217,17 +234,15 @@ app_sg = ec2.SecurityGroup(
             "protocol": "tcp",
             "from_port": 22,
             "to_port": 22,
-            "cidr_blocks": ["0.0.0.0/0"],
-            "description": "SSH access",
-            # allow SSH only from bastion SG
+            "description": "Allow SSH from bastion only",
             "security_groups": [bastion_sg.id],
         },
         {
-            "protocol": "tcp",
-            "from_port": 80,
-            "to_port": 80,
-            "cidr_blocks": ["0.0.0.0/0"],
-            "description": "SSH access from Bastion",
+            "protocol": "icmp",
+            "from_port": -1,
+            "to_port": -1,
+            "cidr_blocks": ["10.0.1.0/24"],
+            "description": "Allow ping from bastion",
         },
     ],
     egress=[
@@ -246,6 +261,7 @@ private_instance = ec2.Instance(
     vpc_security_group_ids=[app_sg.id],
     associate_public_ip_address=False,
     key_name=key_pair.key_name,
+    user_data=user_data_script,
     tags={"Name": "private-instance", "Environment": "dev", "Tier": "private"},
     opts=pulumi.ResourceOptions(depends_on=[public_instance]),
 )

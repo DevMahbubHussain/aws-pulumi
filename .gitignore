@@ -1,3 +1,6 @@
 *.pyc
+__pycache__/
 venv/
-Pulumi.dev.yaml/
+Pulumi.dev.yaml
+dynamic-key.pem
+.vscode/

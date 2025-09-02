@@ -4,4 +4,5 @@ config:
   aws-pulumi:publicSubnetCidr: "10.0.1.0/24"
   aws-pulumi:privateSubnetCidr: "10.0.2.0/24"
   aws-pulumi:instanceType: "t2.micro"
-
+  aws-pulumi:secret:
+    secure: AAABAENAgXjsKkrlSQrHtb73JrkWA7XoNaNNfUfcJ0oWClMoi2WRNlYmy+lFX6zt6BbZQBE=
