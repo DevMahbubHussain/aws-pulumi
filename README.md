@@ -1,4 +1,4 @@
-### **AWS Hands-On Exam (Pulumi)**
+### **Pulumi Bastion & MySQL Infrastructure**
 
 
 ### Task 1 — Create a Secure VPC

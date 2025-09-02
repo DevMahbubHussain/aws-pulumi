@@ -1,4 +1,4 @@
-"""AWS Hands-On Exam (Pulumi)"""
+"""Pulumi Bastion & MySQL Infrastructure"""
 
 import pulumi
 from pulumi_aws import ec2
